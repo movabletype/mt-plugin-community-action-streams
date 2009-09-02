@@ -1,10 +1,10 @@
 id: CommunityActionStreams
 key: CommunityActionStreams
 name: Community Action Streams
-description: <MT_TRANS phrase="Action streams for community events: add entry, add comment, add favorite, follow user.">
+description: 'Action streams for community events: add entry, add comment, add favorite, follow user.'
 author: Mark Paschal, Steve Ivy
 author_url: http://sixapart.com/
-version: 1.2
+version: 1.3
 l10n_class: CommunityActionStreams::L10N
 
 callbacks:
@@ -29,7 +29,7 @@ action_streams:
     community:
         comments:
             name: Comments
-            html_form: [_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>
+            html_form: '[_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>'
             html_params:
                 - url
                 - url
@@ -37,7 +37,7 @@ action_streams:
             class: CommunityActionStreams::Event::Comment
         replies:
             name: Replies
-            html_form: [_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>
+            html_form: '[_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>'
             html_params:
                 - url
                 - url
@@ -45,21 +45,21 @@ action_streams:
             class: CommunityActionStreams::Event::Reply
         entries:
             name: Entries
-            html_form: [_1] posted <a href="[_2]">[_3]</a>
+            html_form: '[_1] posted <a href="[_2]">[_3]</a>'
             html_params:
                 - url
                 - title
             class: CommunityActionStreams::Event::Entry
         favorites:
             name: Favorites
-            html_form: [_1] saved <a href="[_2]">[_3]</a> as a favorite
+            html_form: '[_1] saved <a href="[_2]">[_3]</a> as a favorite'
             html_params:
                 - url
                 - title
             class: CommunityActionStreams::Event::Favorite
         followers:
             name: Followers
-            html_form: [_1] is now following <a href="[_2]">[_3]</a>
+            html_form: '[_1] is now following <a href="[_2]">[_3]</a>'
             html_params:
                 - url
                 - title
