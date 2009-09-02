@@ -1,0 +1,66 @@
+id: CommunityActionStreams
+key: CommunityActionStreams
+name: Community Action Streams
+description: <MT_TRANS phrase="Action streams for community events: add entry, add comment, add favorite, follow user.">
+author: Mark Paschal, Steve Ivy
+author_url: http://sixapart.com/
+version: 1.2
+l10n_class: CommunityActionStreams::L10N
+
+callbacks:
+    MT::Entry::post_save:           $CommunityActionStreams::CommunityActionStreams::Event::Entry::post_save_entry
+    MT::Entry::post_remove:         $CommunityActionStreams::CommunityActionStreams::Event::Entry::post_remove_entry
+    MT::Entry::pre_direct_remove:   $CommunityActionStreams::CommunityActionStreams::Event::Entry::pre_direct_remove_entry
+    MT::Comment::post_save:         $CommunityActionStreams::CommunityActionStreams::Event::Comment::post_save_comment
+    MT::Comment::post_remove:       $CommunityActionStreams::CommunityActionStreams::Event::Comment::post_remove_comment
+    MT::Comment::pre_direct_remove: $CommunityActionStreams::CommunityActionStreams::Event::Comment::pre_direct_remove_comment
+    # MT::Comment::post_save:         $CommunityActionStreams::CommunityActionStreams::Event::Reply::post_save_comment
+    MT::ObjectScore::post_save:     $CommunityActionStreams::CommunityActionStreams::Event::Favorite::post_save_score
+    # api_post_save.author:           $CommunityActionStreams::CommunityActionStreams::Event::Profile::post_save_author
+tags:
+    block:
+        StreamActionEntry:   $CommunityActionStreams::CommunityActionStreams::Event::Entry::tag_entry
+        StreamActionComment: $CommunityActionStreams::CommunityActionStreams::Event::Comment::tag_comment
+        StreamActionFollowed: $CommunityActionStreams::CommunityActionStreams::Event::Following::tag_followed
+#profile_services:
+#    community:
+#        name: Community
+action_streams:
+    community:
+        comments:
+            name: Comments
+            html_form: [_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>
+            html_params:
+                - url
+                - url
+                - title
+            class: CommunityActionStreams::Event::Comment
+        replies:
+            name: Replies
+            html_form: [_1] <a href="[_2]">commented</a> on <a href="[_3]">[_4]</a>
+            html_params:
+                - url
+                - url
+                - title
+            class: CommunityActionStreams::Event::Reply
+        entries:
+            name: Entries
+            html_form: [_1] posted <a href="[_2]">[_3]</a>
+            html_params:
+                - url
+                - title
+            class: CommunityActionStreams::Event::Entry
+        favorites:
+            name: Favorites
+            html_form: [_1] saved <a href="[_2]">[_3]</a> as a favorite
+            html_params:
+                - url
+                - title
+            class: CommunityActionStreams::Event::Favorite
+        followers:
+            name: Followers
+            html_form: [_1] is now following <a href="[_2]">[_3]</a>
+            html_params:
+                - url
+                - title
+            class: CommunityActionStreams::Event::Following
