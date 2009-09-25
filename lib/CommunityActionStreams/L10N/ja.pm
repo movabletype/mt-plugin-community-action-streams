@@ -13,7 +13,7 @@ use vars qw( %Lexicon );
 %Lexicon = (
 
 ## plugins/CommunityActionStreams/config.yaml
-	'Action streams for community events: add entry, add comment, add favorite, follow user.' => 'エントリー、コメント、お気に入り、ユーザーの注目などのコミュニティーイベント用アクションストリームです。',
+	'Action streams for community events: add entry, add comment, add favorite, follow user.' => 'エントリー、コメント、お気に入り、ユーザーの注目などのコミュニティイベント用アクションストリームです。',
 
 );
 
