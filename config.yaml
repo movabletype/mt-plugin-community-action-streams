@@ -1,7 +1,7 @@
 id: CommunityActionStreams
 key: CommunityActionStreams
 name: Community Action Streams
-description: 'Action streams for community events: add entry, add comment, add favorite, follow user.'
+description: '<__trans phrase="Action streams for community events: add entry, add comment, add favorite, follow user.">'
 author: Mark Paschal, Steve Ivy
 author_url: http://sixapart.com/
 version: 1.3
