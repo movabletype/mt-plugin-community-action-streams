@@ -15,8 +15,7 @@ __PACKAGE__->install_properties({
 });
 
 sub post_save_following {
-    my ($cb, $app, $score) = @_;
-
+    my ($cb, $score, $orig_score) = @_;
     return if !eval { require MT::App::Community; 1 };
     return if !eval { require MT::Community::Friending; 1; };
     return if $score->namespace ne MT::Community::Friending::FRIENDING();
@@ -35,8 +34,13 @@ sub post_save_following {
         identifier  => $score->object_id,
     );
     if ($object->isa(MT->model('author'))) {
-        $data{title} = $object->name;
-        $data{url}   = "#";
+        $data{title} = $object->nickname;
+        if ( my $community = MT->config->CommunityScript ) {
+            $data{url} = MT->app->base . MT->app->path . $community . "?__mode=view&blog_id=0&id=" . $object->id;
+        }
+        else {
+            $data{url} = '#';
+        }
     }
     else {
         return;

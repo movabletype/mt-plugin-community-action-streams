@@ -16,20 +16,20 @@ __PACKAGE__->install_properties({
 });
 
 sub post_save_score {
-    my ($cb, $app, $score) = @_;
+    my ($cb, $score, $orig_score ) = @_;
     return if !eval { require MT::App::Community; 1 };
     return if !eval { require MT::Community::Friending; 1; };
     if ($score->namespace eq MT::App::Community->NAMESPACE()) {
-        CommunityActionStreams::Event::Favorite->post_save_favorite(@_);
+        CommunityActionStreams::Event::Favorite::post_save_favorite(@_);
     }
     elsif ($score->namespace eq MT::Community::Friending->FRIENDING()) {
-        CommunityActionStreams::Event::Following->post_save_following(@_);
+        CommunityActionStreams::Event::Following::post_save_following(@_);
     }
     return 1;
 }
 
 sub post_save_favorite {
-    my ($cb, $app, $score) = @_;
+    my ($cb, $score, $orig_score) = @_;
     return if !eval { require MT::App::Community; 1 };
     return if  $score->namespace ne MT::App::Community->NAMESPACE();
 
