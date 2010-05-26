@@ -1,6 +1,6 @@
-# Movable Type (r) (C) 2007-2010 Six Apart, Ltd. All Rights Reserved.
-# This code cannot be redistributed without permission from www.sixapart.com.
-# For more information, consult your Movable Type license.
+# Community Action Streams (C) 2009-2010 Six Apart, Ltd. All Rights Reserved.
+# This library is free software; you can redistribute it and/or modify it
+# under the same terms as Perl itself.
 #
 # $Id$
 
