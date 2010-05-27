@@ -17,28 +17,27 @@ LICENSE
 
 OVERVIEW
 
-Community Action Streams for Movable Type is plugin for Action Streams for Movable Type.
-This plugin adds the following events.
+    Community Action Streams for Movable Type 5 adds following events
+    to the Action Streams plugin.
 
-* Add entry
-* Add comment
-* Add favorite
-* Follow user
+    * Create a new entry
+    * Post comments
+    * Add to favorites
+    * Follow users
 
 
 PREREQUISITES
 
-This plugin works both with Movable Type 5 and Movable Type 4.
-
-- Movable Type 5.02 or higher
-- Movable Type 4.2 or higher
-- Action Streams for Movable Type 5 Ver.2.3 or highr
+    This plugin works both with Movable Type 5 and Movable Type 4.
+    - Movable Type 5.02 or higher
+    - Movable Type 4.2 or higher
+    - Action Streams for Movable Type 5 Ver.2.3 or higher
 
 
 INSTALLATION
 
-  1. Unpack the CommunityActionStreams archive.
-  2. Copy the contents of CommunityActionStreams/plugins into /path/to/mt/plugins/
+    1. Unpack the CommunityActionStreams archive.
+    2. Copy the contents of CommunityActionStreams/plugins into /path/to/mt/plugins/
 
 
 CHANGES
