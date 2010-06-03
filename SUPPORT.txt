@@ -1,0 +1,2 @@
+CommunityActionStreams is not an official Six Apart release. As such,
+support from SixApart for this plugin is not available.
