@@ -39,10 +39,48 @@ INSTALLATION
     1. Unpack the CommunityActionStreams archive.
     2. Copy the contents of CommunityActionStreams/plugins into /path/to/mt/plugins/
 
-
 CHANGES
 
 1.4   26 May 2010
       Support Movable Type 5.02.
+
+EXAMPLE
+
+<mt:ActionStreams sort_order="descend" lastn="50">
+  <ul class="action-listing">
+    <mt:If name="action_type" eq="community_entries">
+      <mt:StreamActionEntry>
+        <li class="icon-<$mt:EntryPostType$>">
+          <span class="action-listing-date"><$mt:EntryDate format="%m.%d.%Y" $></span><span class="action-listing-title"><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></span>
+        </li>
+      </mt:StreamActionEntry>
+    <mt:Else name="action_type" eq="community_comments">
+      <mt:StreamActionComment>
+        <li class="icon-comment">
+          <span class="action-listing-date"><$mt:CommentDate format="%m.%d.%Y" $></span><span class="action-listing-title"><a href="<$mt:CommentLink$>"><$mt:CommentBody words="50"$></a></span>
+        </li>
+      </mt:StreamActionComment>
+    <mt:Else name="action_type" eq="community_followers">
+      <mt:StreamActionFollowed>
+        <li class="icon-follow">
+          <span class="action-listing-date"><$mt:StreamActionDate format="%m.%d.%Y"$></span><span class="action-listing-title"><a href="<$mt:Var name="profile_view_url" encode_html="1"$><$mt:AuthorID$>" target="_blank"><__trans phrase="followed [_1]" params="<mt:AuthorDisplayName escape=\"html\">"></a></span>
+        </li>
+      </mt:StreamActionFollowed>
+    <mt:Else name="action_type" eq="community_favorites">
+      <mt:StreamActionEntry>
+        <li class="icon-favorite">
+          <span class="action-listing-date"><$mt:StreamActionDate format="%m.%d.%Y" $></span><span class="action-listing-title"><a href="<$mt:EntryPermalink$>"><$mt:EntryTitle$></a></span>
+        </li>
+      </mt:StreamActionEntry>
+    <mt:Else>
+      <li class="icon-service-<mt:var name="service_type">">
+        <span class="action-listing-date"><$mt:StreamActionDate format="%m.%d.%Y"$></span><span class="action-listing-title"><a href="<mt:StreamActionURL escape="html">" target="_blank"><mt:StreamActionTitle remove_html="1"></a></span>
+      </li>
+    </mt:If>
+  </ul>
+</mt:ActionStreams>
+
+
+
 
 
