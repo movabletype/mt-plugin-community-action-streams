@@ -23,10 +23,10 @@ use MT::Util qw( encode_html );
 use MT::I18N qw( first_n_text );
 
 sub post_save_comment {
-    my ( $cb, $comment, $original ) = @_;   
+    my ( $cb, $comment, $original ) = @_;
     return if !$comment->commenter_id;
-    
-    if ( $comment->is_published() 
+
+    if ( $comment->is_published()
       && $comment->entry->status == MT->model('entry')->RELEASE() ) {
         add_event( $original );    # use original for ts type date
     }

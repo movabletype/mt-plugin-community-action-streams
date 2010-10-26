@@ -85,7 +85,7 @@ sub entry {
     my $event = shift;
     my $score = MT->model('objectscore')->load($event->identifier);
     return if !$score;
-	return MT->model('entry')->load($score->object_id)
+    return MT->model('entry')->load($score->object_id)
         if $score->object_ds eq 'entry';
     return if $score->object_ds ne 'comment';
     my $comment = MT->model('comment')->load($score->object_id)
