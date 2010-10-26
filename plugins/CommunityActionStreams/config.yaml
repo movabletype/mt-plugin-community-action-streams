@@ -2,9 +2,9 @@ id: CommunityActionStreams
 key: CommunityActionStreams
 name: Community Action Streams
 description: '<__trans phrase="Action streams for community events: add entry, add comment, add favorite, follow user.">'
-author_name: Six Apart Ltd.
-author_url: http://sixapart.com/
-version: 1.4
+author_name: Six Apart
+author_url: http://www.movabletype.org/
+version: 1.4.1
 l10n_class: CommunityActionStreams::L10N
 
 callbacks:
