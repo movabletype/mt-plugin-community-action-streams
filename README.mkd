@@ -1,3 +1,5 @@
+This plugin is no longer supported in Movable Type 8 and later.
+
 # Community Action Streams for Movable Type 5
 
 ## Authors
